@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4BP-6f-T9k">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="NBm-eW-nzm">
+            <objects>
+                <navigationController id="4BP-6f-T9k" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3p0-Gj-9dY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Kka-hQ-r7f" kind="relationship" relationship="rootViewController" id="jzg-l3-SQ0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A6g-Y8-SxO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-875" y="4"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="qKy-kK-eFe">
+            <objects>
+                <viewController id="Kka-hQ-r7f" customClass="MainViewController" customModule="cashbagB2BExcample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DTK-Yj-qjS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbZ-u1-Zrr">
+                                <rect key="frame" x="10" y="98" width="73.5" height="75"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbA-SJ-aE8">
+                                        <rect key="frame" x="12" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="SQe-Pc-EMh"/>
+                                            <constraint firstAttribute="height" constant="50" id="wOg-Lx-aHi"/>
+                                        </constraints>
+                                        <state key="normal" image="ic-cashbag"/>
+                                        <connections>
+                                            <segue destination="3hB-L0-77z" kind="push" id="vae-yz-71V"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoàn tiền" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOw-fe-VpB">
+                                        <rect key="frame" x="0.0" y="54" width="73.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="JbA-SJ-aE8" firstAttribute="top" secondItem="sbZ-u1-Zrr" secondAttribute="top" id="6Dd-Sx-8sw"/>
+                                    <constraint firstItem="sOw-fe-VpB" firstAttribute="leading" secondItem="sbZ-u1-Zrr" secondAttribute="leading" id="73W-h4-OyW"/>
+                                    <constraint firstAttribute="bottom" secondItem="sOw-fe-VpB" secondAttribute="bottom" id="KLa-gh-XOr"/>
+                                    <constraint firstItem="JbA-SJ-aE8" firstAttribute="centerX" secondItem="sbZ-u1-Zrr" secondAttribute="centerX" id="YYT-4c-PtH"/>
+                                    <constraint firstItem="sOw-fe-VpB" firstAttribute="top" secondItem="JbA-SJ-aE8" secondAttribute="bottom" constant="4" id="oi3-VU-zIv"/>
+                                    <constraint firstAttribute="trailing" secondItem="sOw-fe-VpB" secondAttribute="trailing" id="tYe-hP-1aM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sbZ-u1-Zrr" firstAttribute="top" secondItem="sXJ-n8-eDo" secondAttribute="top" constant="10" id="EQv-7F-FjM"/>
+                            <constraint firstItem="sbZ-u1-Zrr" firstAttribute="leading" secondItem="sXJ-n8-eDo" secondAttribute="leading" constant="10" id="kYk-So-ANS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sXJ-n8-eDo"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yUX-qf-zKi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3bu-hq-w8z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-46" y="3"/>
+        </scene>
+        <!--Cashback View Controller-->
+        <scene sceneID="3fc-Am-9JO">
+            <objects>
+                <viewController id="3hB-L0-77z" customClass="CashbackViewController" customModule="cashbagB2BExcample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HQp-p2-5FE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="MEd-JS-WGU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Lu-EQ-SYe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cCt-B7-Odp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800" y="3"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic-cashbag" width="48.5" height="49.5"/>
+    </resources>
+</document>
