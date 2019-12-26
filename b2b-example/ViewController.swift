@@ -82,8 +82,9 @@ extension UIColor {
         let alpha = max(0, min(a, 1))
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-    
-    static var mainColor: UIColor = UIColor(r: 182, g: 46, b: 52)
+    static var ocbMainColor: UIColor = UIColor(r: 0, g: 140, b: 69)
+    static var vinMainColor: UIColor = UIColor(r: 182, g: 46, b: 52)
+    static var mainColor: UIColor = ocbMainColor
 }
 
 
