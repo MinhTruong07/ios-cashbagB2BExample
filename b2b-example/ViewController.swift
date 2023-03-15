@@ -51,26 +51,27 @@ class ViewController: UIViewController {
         DispatchQueue.main.async {
             self.present(nav, animated: true, completion: nil)
         }
-        
     }
 }
 
 extension ViewController {
     func generateURL(partnerId: String, name: String) -> URL? {
-        let timestamp = Int64(Date().timeIntervalSince1970)
-        let privateKey = "Q2FzaGJhZy1WaW5pZC1Ub2tlbg==" // Sẽ được cashbag cung cấp khi tích hợp
-        let tokenString =  partnerId + name + privateKey + "\(timestamp)"
-        let token = tokenString.sha256()
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = "dev-webview.cashbagb2b.vn" // Sẽ được cashbag cung cấp khi tích hợp
-        components.queryItems = [
-            URLQueryItem(name: "partnerId", value: partnerId),
-            URLQueryItem(name: "name", value: name),
-            URLQueryItem(name: "timestamp", value: "\(timestamp)"),
-            URLQueryItem(name: "token", value: token)
-        ]
-        return components.url
+//        let timestamp = Int64(Date().timeIntervalSince1970)
+//        let privateKey = "AG9JKIZsxE0BCMkhgXwrdNuK" // Sẽ được cashbag cung cấp khi tích hợp
+//        let tokenString =  partnerId + name + privateKey + "\(timestamp)"
+//        let token = tokenString.sha256()
+//        var components = URLComponents(
+//        components.scheme = "https"
+//        components.host = "webview.devatcashback.com" // Sẽ được cashbag cung cấp khi tích hợp
+//        components.queryItems = [
+//            URLQueryItem(name: "userId", value: partnerId),
+//            URLQueryItem(name: "name", value: name),
+//            URLQueryItem(name: "timestamp", value: "\(timestamp)"),
+//            URLQueryItem(name: "token", value: token),
+//            URLQueryItem(name: "sandbox", value: "1")
+//        ]
+//        return components.url
+        return URL(string: "https://webview.devatcashback.com/brand?userId=12345&userName=Sinh&timestamp=1678690177&token=b38fe2c7dd1ce14f8fe34ed43f64cfd0094b58d1fcaed86ff1fd3f12603934af&sandbox=1")
     }
 }
 

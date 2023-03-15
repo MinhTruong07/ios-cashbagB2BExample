@@ -24,9 +24,12 @@ class CashbackViewController: UIViewController {
         title = "Hoàn tiền"
         navigationItem.leftBarButtonItem = backButton
         
-        let web = WKWebView()
+
+        let config = WKWebViewConfiguration()
+        config.userContentController.add(self, name: "jsMessageHandler")
+        
+        let web = WKWebView(frame: CGRect.zero, configuration: config)
         webContentView.addSubview(web)
-        web.addObserver(self, forKeyPath: "URL", options: .new, context: nil)
         web.translatesAutoresizingMaskIntoConstraints = false
         web.topAnchor.constraint(equalTo: webContentView.topAnchor).isActive = true
         web.bottomAnchor.constraint(equalTo: webContentView.bottomAnchor).isActive = true
@@ -46,19 +49,34 @@ class CashbackViewController: UIViewController {
 }
 
 // Detected URL
-extension CashbackViewController {
-    // ?cashback_aff_url={url}
-    override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-      if keyPath == #keyPath(WKWebView.url) {
-        guard let url = webView.url else { return }
-        if let querry = url.queryParameters {
-            if querry["cashback_aff_url"] != nil && querry["cashback_aff_url"] != ""  { // detect cashback url
-                guard let cashbackURL = URL(string: querry["cashback_aff_url"]!) else { return }
-                UIApplication.shared.open(cashbackURL, options: [:], completionHandler: nil)
-                webView.stopLoading()
+extension CashbackViewController: WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        if message.name == "jsMessageHandler" {
+            guard let ms = message.body as? String else { return }
+            guard let data = ms.data(using: .utf8) else { return }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [String:String] {
+                   guard let type = json["type"], let value = json["value"] else { return }
+                    print("-- value: ", value)
+                   var url: URL?
+                   if type == "open_affiliate_link", let url_ = URL(string: value) {
+                       url = url_
+                   }
+                   if type == "open_tel_link", let url_ = URL(string: "tel:\(value)") {
+                       url = url_
+                   }
+
+                   guard url != nil else { return }
+                   if UIApplication.shared.canOpenURL(url!) {
+                       UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                   }
+                } else {
+                    print("bad json")
+                }
+            } catch let error as NSError {
+                print(error)
             }
         }
-      }
     }
 }
 

@@ -173,20 +173,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-b2b-example/Pods-b2b-example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-b2b-example/Pods-b2b-example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-b2b-example/Pods-b2b-example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-b2b-example/Pods-b2b-example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-b2b-example/Pods-b2b-example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D358876DAF5D5CD844E4EDD2 /* [CP] Check Pods Manifest.lock */ = {
